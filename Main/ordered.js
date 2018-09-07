@@ -7,7 +7,7 @@ function linkedList()
     var list = new utility();
 
 try {
-    var newdata = fs.readFileSync('data.txt');
+    var newdata = fs.readFileSync('num.txt');
    
 }
     catch(exception)
@@ -40,10 +40,11 @@ try {
                     
                 }
                 var array = list.printList()
-                fs.writeFile('/home/nadeem/Programlabz/DatastructurePrograms/Main/data.txt', array , function()
+                fs.writeFile('/home/nadeem/Programlabz/DatastructurePrograms/Main/num.txt', array , function()
                 { console.log('done')})
-                console.log("The updated list is ==> ")
+                list.sort(array);
+                console.log("The updated list is ; ")
             }    
-
+            
  linkedList();
 
