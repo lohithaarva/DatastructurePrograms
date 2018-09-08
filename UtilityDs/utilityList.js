@@ -192,28 +192,10 @@
         console.log(str);
         return str;
     }
-     sort(array)  
-    { 
-        // Initialize sorted linked list 
-        var sorted = null; 
-        var current = headref; 
-        // Traverse the given linked list and insert every 
-        // node to sorted 
-        while (current != null)  
-        { 
-            // Store next for next iteration 
-            var next = current.next; 
-            // insert current in sorted linked list 
-            sortedInsert(current); 
-            // Update current 
-            current = next; 
-        } 
-        // Update head_ref to point to sorted linked list 
-        head = sorted;  array; 
-        return 
-    } 
 
-    }
+
+}
+
     module.exports = linkedList
 
 
