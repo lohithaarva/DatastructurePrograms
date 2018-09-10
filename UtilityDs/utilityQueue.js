@@ -42,6 +42,10 @@ printQueue()
         console.log(str);
     return str;
 }
+size()
+{
+    return this.items.length;
+}
 }
 module.exports = Queue
 

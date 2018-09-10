@@ -23,11 +23,10 @@ try {
                 list.add(arr[i]);
             }               
             var write = prompt("Enter an element ");
-            var reg = /[a-zA-Z]/g;
+            var reg = /[a-z]/g;
             var reg1 = /[!@#$%^&*()_+{}[]:"<>?]/g;
-            if(write.search(reg) == -1 && write.search(reg1) == -1) //accepts only numbers
+            if(write.search(reg) == -1 && write.search(reg1) == -1) //accepts only string
             {
-                
                 list.printList()
                 var result =  list.indexOf(write)
                     if (result == -1)
@@ -40,29 +39,14 @@ try {
                     console.log("The string is found!") 
                     list.removeElement(write)
                 }
-                var array = list.printList()
-                var arr = Array.from(array) 
-                console.log(arr)  //conversion of string to arra
-              var size=arr.length;
-              for(var i=size;i>0;i--)
-              {
-                    for(var j=1;j<size;j++)
-                  {
-                      if(arr[j-1]>arr[j])
-                      {
-                            var temp=arr[j-1];
-                            arr[j-1]=arr[j];
-                            arr[j]=temp;
-                      }
-                    }
-                    size--;
-                }
-                console.log("array is " , arr)
-                //list.sort(array);
-             array = arr.toString();
-                fs.writeFile('/home/nadeem/Programlabz/DatastructurePrograms/Main/num.txt',array)
-                console.log("The updated list is ==> ")
+                 list.printList()
+                 var array = list.sort();
+                list.printList();
                 
+                fs.writeFile('/home/nadeem/Programlabz/DatastructurePrograms/Main/num.txt', array , function()
+                { console.log('done')})
+                console.log("The updated list is ==> ")
+
             } 
            
             else 

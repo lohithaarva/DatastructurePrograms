@@ -1,47 +1,54 @@
 "use strict"
 var prompt = require('prompt-sync')();
-var utility = require('../UtilityDs/utilityQueue.js');
+var utility =require('../UtilityDs/utilityQueue.js');
+
 function Queue()
 {
     var queue = new utility();
-
-    var ch =0;
-    do 
+    var accountNum = Math.random(100,200);
+    console.log("Welcome to People's bank!!");
+   
+    var val = prompt("Please enter the number of customers: ");
+    for(var i=0;i<val;i++)
     {
-        console.log();
-        console.log("-------Banking Cash COunter------------");
-        console.log("1.Deposit");
-	    console.log("2.Withdraw");
-		console.log("3.Number of people in the Queue ");
-		console.log("4.Exit");
-		console.log();
-        console.log("Enter your choice: ");
+        queue.enqueue(i);
+    }
+    queue.printQueue();
+    while(queue.size()>0)
+    {
+        var accountNum = prompt("Please enter your account number: ");
+        if(accountNum>=100 && accountNum<=200)
+        {
+            console.log("Enter 1 for cash withdrawal and 2 for cash deposit: ");
+			var choice = prompt("Please enter your choice: ");
+	        var amount = 5000, Balance,Balance1;
+            switch(choice)
+            {
+                case '1': 
+                var withdrawal = prompt("Enter the amount to withdraw: ");
+                console.log("The amount withdrew by the customer is "+withdrawal);
+                Balance = Number(amount) - Number(withdrawal);
+                console.log("Your account balance is: "+Balance);
+                break;
+            
+                case '2':
+                var deposit = prompt("Enter the amount to deposit: ");
+                console.log("The amount deposited is "+deposit); 
+                Balance1 = Number(amount) + Number(deposit);
+                console.log("Your account balance is: "+Balance1);
+                break;
 
-        switch (parseInt(choice)) 
-		   	{
-		   	case 1:
-			   		var choice = prompt ("Enter the amount you want to Deposit");
-			   		queue.insert(u.inputInteger()); 
-			   		queue.display();
-			   		break;
-		   	case 2:
-			   		var choice = prompt("Enter the amount you want to Withdraw ");
-					u.inputInteger();
-			   		queue.remove();
-			   		System.out.println(" Your Available Balance is: "); 
-			   		queue.display();
-			   		break;
-			case 3:
-					var j=q.getSize();
-					console.log("The Number of People in Queue is: "+j);			
-		   	case 4:
-			   		console.exit(0);
-		   	default: 
-			   		console.log("You entered wrong choice");
-			   		break;
-		   	}
+                default:
+                console.log("Invalid choice!!");
+            }
+        }
+        else
+        {
+            console.log("Enter valid account number!!");
+        }
+     queue.dequeue();
 
     }
-    while (ch <1)
+
 }
-Queue();
+Queue()
