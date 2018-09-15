@@ -211,8 +211,68 @@
         for a non-existent element so we assert fail */
         return 0; 
     }
-    
 
+    sortList() {
+
+        var swap;
+        var current = this.head;
+        var current1 = current.next;
+        var n = this.size;
+
+        for (let i = 0; i < n; i++) {
+
+            for (let j = 0; j < n - i - 1; j++) {
+
+                if (parseInt(current1.element) < parseInt(current.element)) {
+
+                    swap = current.element;
+
+                    current.element = current1.element;
+
+                    current1.element = swap;
+
+                }
+
+                if (current1.next != null) {
+
+                    current = current1;
+
+                    current1 = current1.next;
+
+                }
+
+            }
+
+            current = this.head;
+
+            current1 = current.next;
+        }
+
+        console.log('List sorted');
+    }
+
+    /* function to insert a element in a list. */
+    sortedInsert(element) {
+
+        var node = new Node(element);
+
+        /* Special case for head node */
+        if (this.head == null || this.head.element >= node.element) {
+            node.next = this.head;
+            this.head = node;
+        }
+        else {
+
+            /* Locate the node before point of insertion. */
+            var current = this.head;
+
+            while (current.next != null &&
+                current.next.element < node.element)
+                current = current.next;
+            node.next = current.next;
+            current.next = node;
+        }
+    }
 }
 
     module.exports = linkedList

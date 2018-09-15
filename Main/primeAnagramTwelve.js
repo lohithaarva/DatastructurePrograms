@@ -2,13 +2,14 @@ let prompt = require('prompt-sync')();
 
 let utility = require('../UtilityDs/utilityPrimeArray.js');
 
-let re = /[a-zA-Z]/g;
+let re = /[a-zA-Z]/g;                   //use of regular expression
 let re2 = /[!@#$%^&*().<>+-/*"'`~]/g;
 
-let prime = [];
-
-
-
+let prime = []; // creation of an empty array
+/**
+*@description To calculate the Arithmetic Expression
+*@param count hods the value of iteration
+*/
 function primeAnagram() {
 
     let num1 = prompt(' Enter Number 1: ');
@@ -24,20 +25,20 @@ function primeAnagram() {
 
          console.log('\n Prime numbers given in the range are : \n');
          console.log(prime);
-
+        // Creation of an empty array 
          let anagram = [];
          let anagramNot = [];
-
+    // checking the condition
     for(let i=0; i<prime.length-1 ; i++) {
 
         for(let j=i+1 ; j< prime.length ; j++) {
 
-            index1 = prime[i].toString();
+            index1 = prime[i].toString();         //converting index1 to string
 
-            index2 = prime[j].toString();
+            index2 = prime[j].toString();         //converting index2 to string
    
             let res1 = utility.anagrams(index1,index2);
-   
+        // pushing result to another array
             if (res1) {
                 anagram.push(prime[i]);
                 anagram.push(prime[j]);
@@ -57,7 +58,7 @@ function primeAnagram() {
     let anag = [];
 
     let anagN = [];
-
+    // calling a method 
      anag = removeDuplicates(anagram);
 
      anagN = removeDuplicates(anagramNot);

@@ -30,11 +30,15 @@ this.dqsise=function(){
 }
 }
         var deque=new Deque();
+        //creatio of an empty array
         var a=[];
         //str=str.trim();
+        // converts the entered string into lower case and splits
         a=word.toLowerCase().split('');
+        // checks the condition with the length of the string enterted
         for(var i=0;i<a.length;i++)
             {
+                //pushback the result
                 deque.pushback(a[i]);
             }
             console.log(deque.printQue());
@@ -43,15 +47,17 @@ this.dqsise=function(){
           {
               while(deque.dqsise()>0)
               {
+                  //checking the string by popping from the front
                   var a=deque.popfront();
+                  //checking the string by popping from the end 
                   var b=deque.popback();
-                  if(a!=b)
+                  if(a!=b) //checks if the string is equal or not
                   {
                       flag=false;
                   }
               }
           }
-          else
+         /* else
           {
               while(deque.dqsise()>1)
               {
@@ -62,7 +68,10 @@ this.dqsise=function(){
                     flag=false;
                 }
               }
+              
           }
+          */
+         //evaluates for the 2 strings which is equal
                 if(flag==true)
                 {
                 console.log("pallindrome")

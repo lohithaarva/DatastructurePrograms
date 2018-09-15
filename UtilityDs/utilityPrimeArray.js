@@ -1,22 +1,26 @@
 
 module.exports = {
-
+/**
+*@description To calculate the Arithmetic Expression
+*@param count hods the value of iteration
+*/
 
 checkPrime : function(min1,max1) { 
 
-    let size = (Math.floor(max1/100) + 1);
-    let range = Math.floor(min1/100);
-
+    let size = (Math.floor(max1/100) + 1);  //evaluates the size of array
+    let range = Math.floor(min1/100);   // evaluates the range 
+    // creation of an emty array
     let arr1 = [];
 
     min = min1;
-
+    //checks the condition for the range of numbers to be divided
     if((min1 == 0) && (max1 >= 100)) 
     {
 
         max = 100;
        // max = 99;
     }
+    //checks if user input value for evaluation of maximum value
     else if( max1 <= 100)
     {
         max  = max1;
@@ -27,7 +31,7 @@ checkPrime : function(min1,max1) {
     max = ((range+1)*100)-1;
 
     }
-
+    
     for(let index = range+1 ; index <= size;index++) {
 
         if( (max-min) < 100 && max <= max1) {
@@ -46,39 +50,23 @@ checkPrime : function(min1,max1) {
                     }
                     
                 }
-        
-                if(count <= 2) {
-        
+                    if(count <= 2) {
                     prime.push(i);
-                    
-    
-                }
-    
-                
+                }   
             } 
-    
+    // push the prime numbers to an array called arr1
             arr1.push(prime);
-    
             if(max1 - max < 100) {
-
                 range = Math.floor(min/100);
-    
                 min = (min + ((range+1)*100)-min);
-
                 max = max1-1;
-
             }
         
             else {
-
-                range = Math.floor(min/100);
-        
-                min = (min + ((range+1)*100)-min);
-        
-                max = max + 100;
-        
-            }
-    
+                range = Math.floor(min/100);       
+                min = (min + ((range+1)*100)-min);       
+                max = max + 100;        
+            }   
         }      
     }
 

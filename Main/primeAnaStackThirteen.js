@@ -4,6 +4,10 @@ let prompt = require('prompt-sync')();
 let utility = require('../UtilityDs/utilityPrimeArray.js');
 
 let utility3 = require('../UtilityDs/utilityStack.js');
+/**
+*@description To calculate the Arithmetic Expression
+*@param count hods the value of iteration
+*/
 
 let re = /[a-zA-Z]/g;
 let re2 = /[!@#$%^&*().<>+-/*"'`~]/g;
@@ -77,7 +81,7 @@ function main()
 
         }
 
-    
+// creation of an object of utility1, where it has linked list properties
     let llist = new utility1(); 
 
     for(let i = 0; i < anag.length; i++) {
@@ -85,29 +89,29 @@ function main()
         llist.add(anag[i]); 
 
     }
-
-    let res = llist.printList();
-
-    console.log(res);
-    
+    //let res = llist.printList();
+    //console.log(res);
     //console.log("Element at index 1 is "+llist.GetNth(1)); 
 
+    // creation of an object of utility3, where it has stack properties
     let stack = new utility3();
 
     for(let i = 0; i < anag.length; i++) {
-
-        let temp = llist.GetNth(i)
+        
+        let temp = llist.GetNth(i);
         stack.push(temp);
          
 
     }
 
     let out = stack.printStack();
-    console.log('elements in stack are :'+ out);
-
+    console.log('Elements in stack are :'+ out);
+    console.log("Elements in the reverse order are displayed ")
+    console.log();
+    //reverse the elements in the stack
     for(let i = anag.length; i > 0 ; i--) {
-
         console.log(stack.pop());
     }
+
 }
 main()

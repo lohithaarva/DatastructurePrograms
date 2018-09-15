@@ -4,12 +4,14 @@ let prompt = require('prompt-sync')();
 let utility = require('../UtilityDs/utilityPrimeArray.js');
 
 let utility3 = require('../UtilityDs/utilityQueue.js');
-
+/**
+*@description Using the Linked List and Print the Anagrams from the Queue.
+*/
+//checks for the regular espressions
 let re = /[a-zA-Z]/g;
 let re2 = /[!@#$%^&*().<>+-/*"'`~]/g;
-
+// creation of an empty array
 let prime = [];
-
 let anag = [];
 /* Drier program to test above functions*/
 function main() 
@@ -18,12 +20,12 @@ function main()
     let num1 = prompt(' Number 1: ');
     let num2 = prompt(' Number 2: ');
 
-
+    //evaluation of the number entered with regular expression
     if(num1.search(re) == -1 && num2.search(re2) == -1 && num1 >= 0 && num2 > 0 && num1 < 1001 && num2 < 1001) {
         
          num1 = parseInt(num1);
          num2 = parseInt(num2);
-        
+         //calling method for the evalutaion of prime
          prime = utility.prime(num1,num2);
 
          console.log('Prime are .................');
@@ -38,9 +40,9 @@ function main()
             index1 = prime[i].toString();
 
             index2 = prime[j].toString();
-   
+            // calling method for the evaluation of anagram 
             let res1 = utility.anagrams(index1,index2);
-   
+            // push the resultant arrayinto anither array
             if (res1) {
                 anagram.push(prime[i]);
                 anagram.push(prime[j]);
@@ -48,9 +50,7 @@ function main()
 
         }
     }
-
-    
-
+    // calling method to remove duplicates 
      anag = removeDuplicates(anagram);
 
      console.log('Anagrams in the range are :' + anag);
