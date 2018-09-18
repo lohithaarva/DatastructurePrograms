@@ -14,99 +14,98 @@ let re2 = /[!@#$%^&*().<>+-/*"'`~]/g;
 let prime = [];
 let anag = [];
 /* Drier program to test above functions*/
-function main() 
-{ 
+function main() {
 
     let num1 = prompt(' Number 1: ');
     let num2 = prompt(' Number 2: ');
 
     //evaluation of the number entered with regular expression
-    if(num1.search(re) == -1 && num2.search(re2) == -1 && num1 >= 0 && num2 > 0 && num1 < 1001 && num2 < 1001) {
-        
-         num1 = parseInt(num1);
-         num2 = parseInt(num2);
-         //calling method for the evalutaion of prime
-         prime = utility.prime(num1,num2);
+    if (num1.search(re) == -1 && num2.search(re2) == -1 && num1 >= 0 && num2 > 0 && num1 < 1001 && num2 < 1001) {
 
-         console.log('Prime are .................');
-         console.log(prime);
+        num1 = parseInt(num1);
+        num2 = parseInt(num2);
+        //calling method for the evalutaion of prime
+        prime = utility.prime(num1, num2);
 
-         let anagram = [];
-         
-    for(let i=0; i<prime.length-1 ; i++) {
+        console.log('Prime are .................');
+        console.log(prime);
 
-        for(let j=i+1 ; j< prime.length ; j++) {
+        let anagram = [];
 
-            index1 = prime[i].toString();
+        for (let i = 0; i < prime.length - 1; i++) {
 
-            index2 = prime[j].toString();
-            // calling method for the evaluation of anagram 
-            let res1 = utility.anagrams(index1,index2);
-            // push the resultant arrayinto anither array
-            if (res1) {
-                anagram.push(prime[i]);
-                anagram.push(prime[j]);
-            }
+            for (let j = i + 1; j < prime.length; j++) {
 
-        }
-    }
-    // calling method to remove duplicates 
-     anag = removeDuplicates(anagram);
+                index1 = prime[i].toString();
 
-     console.log('Anagrams in the range are :' + anag);
-     
+                index2 = prime[j].toString();
+                // calling method for the evaluation of anagram 
+                let res1 = utility.anagrams(index1, index2);
+                // push the resultant arrayinto anither array
+                if (res1) {
+                    anagram.push(prime[i]);
+                    anagram.push(prime[j]);
+                }
 
-    function removeDuplicates(arr){
-
-        let unique_array = [];
-
-        
-        for(let i = 0;i < arr.length; i++){
-
-            if(unique_array.indexOf(arr[i]) == -1){
-
-                unique_array.push(arr[i])
             }
         }
+        // calling method to remove duplicates 
+        anag = removeDuplicates(anagram);
 
-        return unique_array;
-        
-      
-         
-    }
+        console.log('Anagrams in the range are :' + anag);
+
+
+        function removeDuplicates(arr) {
+
+            let unique_array = [];
+
+
+            for (let i = 0; i < arr.length; i++) {
+
+                if (unique_array.indexOf(arr[i]) == -1) {
+
+                    unique_array.push(arr[i])
+                }
+            }
+
+            return unique_array;
+
+
 
         }
 
-    
-    let llist = new utility1(); 
+    }
 
-    for(let i = 0; i < anag.length; i++) {
 
-        llist.add(anag[i]); 
+    let llist = new utility1();
+
+    for (let i = 0; i < anag.length; i++) {
+
+        llist.add(anag[i]);
 
     }
 
     let res = llist.printList();
 
     console.log(res);
-    
+
     //console.log("Element at index 1 is "+llist.GetNth(1)); 
 
     let queue = new utility3();
 
-    for(let i = 0; i < anag.length; i++) {
+    for (let i = 0; i < anag.length; i++) {
 
         let temp = llist.GetNth(i);
         console.log(" print " + temp)
 
         queue.enqueue(temp);
-         
+
 
     }
 
     let out = queue.printQueue();
-    console.log('elements in stack are :'+ out);
-} 
+    console.log('elements in stack are :' + out);
+}
 
 main();
 

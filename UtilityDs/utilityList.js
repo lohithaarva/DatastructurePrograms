@@ -1,52 +1,47 @@
-    // User defined class node
-    class Node 
-    {
-        // constructor
-        constructor(element)
-        {
-            this.element = element;
-            this.next = null
-        }
+// User defined class node
+class Node {
+    // constructor
+    constructor(element) {
+        this.element = element;
+        this.next = null
     }
-        
-    // linkedlist class
-    class linkedList {
-        constructor()
-        {
-            this.head = null;
-            this.size = 0;
-        }
+}
+
+// linkedlist class
+class linkedList {
+    constructor() {
+        this.head = null;
+        this.size = 0;
+    }
     // isEmpty() – it returns true if the list is empty.
-        // checks the list for empty
-        isEmpty()
-        {
-            return this.size == 0;
-        }
+    // checks the list for empty
+    isEmpty() {
+        return this.size == 0;
+    }
     // add(element) – It adds an element at the end of list.
     // adds an element at the end
     // of list
 
-    add(element)
-    {
+    add(element) {
         // creates a new node
         var node = new Node(element);
-    
+
         // to store current node
         var current;
-    
+
         // if list is Empty add the
         // element and make it head
         if (this.head == null)
             this.head = node;
         else {
             current = this.head;
-    
+
             // iterate to the end of the
             // list
             while (current.next) {
                 current = current.next;
             }
-    
+
             // add node
             current.next = node;
         }
@@ -55,17 +50,16 @@
     //insertAt(element, index) – It inserts an element at the given index in a list.
     // insert element at the position index
     // of the list
-    insertAt(element, index)
-    {
+    insertAt(element, index) {
         if (index > 0 && index > this.size)
             return false;
         else {
             // creates a new node
             var node = new Node(element);
             var curr, prev;
-    
+
             curr = this.head;
-    
+
             // add the element to the
             // first index
             if (index == 0) {
@@ -74,7 +68,7 @@
             } else {
                 curr = this.head;
                 var it = 0;
-    
+
                 // iterate over the list to find
                 // the position to insert
                 while (it < index) {
@@ -82,7 +76,7 @@
                     prev = curr;
                     curr = curr.next;
                 }
-    
+
                 // adding an element
                 node.next = curr;
                 prev.next = node;
@@ -95,15 +89,14 @@
     //removeFrom(index) – It removes and returns an element from the list from the specified index
     // removes an element from the
     // specified location
-    removeFrom(index)
-    {
+    removeFrom(index) {
         if (index > 0 && index > this.size)
             return -1;
         else {
             var curr, prev, it = 0;
             curr = this.head;
             prev = curr;
-    
+
             // deleting first element
             if (index === 0) {
                 this.head = curr.next;
@@ -115,12 +108,12 @@
                     prev = curr;
                     curr = curr.next;
                 }
-    
+
                 // remove the element
                 prev.next = curr.next;
             }
             this.size--;
-    
+
             // return the remove element
             return curr.element;
         }
@@ -129,11 +122,10 @@
     //removeElement(element) – This method removes element from the list. It returns the removed element, or if its not found it returns -1.
     // removes a given element from the
     // list
-    removeElement(element)
-    {
+    removeElement(element) {
         var current = this.head;
         var prev = null;
-    
+
         // iterate over the list
         while (current != null) {
             // comparing element with current
@@ -155,11 +147,10 @@
     }
     //indexOf(element) – it returns the index of a given element, if the element is in the list.
     // finds the index of element
-    indexOf(element)
-    {
+    indexOf(element) {
         var count = 0;
         var current = this.head;
-    
+
         // iterae over the list
         while (current != null) {
             // compare each element of the list
@@ -169,20 +160,18 @@
             count++;
             current = current.next;
         }
-    
+
         // not found
         return -1;
     }
     //size_of_list() – It returns the size of list
     // gives the size of the list
-    size_of_list()
-    {
+    size_of_list() {
         console.log(this.size);
     }
     //printList() – It prints the contents of the list.
     // prints the list items
-    printList()
-    {
+    printList() {
         var curr = this.head;
         var str = "";
         while (curr) {
@@ -193,23 +182,21 @@
         return str;
     }
 
-     GetNth(index) 
-    {   
-        
-        var  current = this.head; 
+    GetNth(index) {
+
+        var current = this.head;
         var count = 0; /* index of Node we are 
                           currently looking at */
-        while (current != null) 
-        { 
-            if (count == index) 
-                return current.element; 
-            count++; 
-            current = current.next; 
-        } 
-  
+        while (current != null) {
+            if (count == index)
+                return current.element;
+            count++;
+            current = current.next;
+        }
+
         /* if we get to this line, the caller was asking 
         for a non-existent element so we assert fail */
-        return 0; 
+        return 0;
     }
 
     sortList() {
@@ -275,6 +262,6 @@
     }
 }
 
-    module.exports = linkedList
+module.exports = linkedList
 
 
